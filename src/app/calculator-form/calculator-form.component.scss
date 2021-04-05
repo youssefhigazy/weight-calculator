@@ -1,0 +1,46 @@
+.form{
+    width: 70%;
+    height: fit-content;
+    margin: 15px auto;
+    background-color: #F6E8EA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2%;
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 20px;
+    }
+    .gender label, .unit label, .height-unit label {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .height-container{
+        margin-bottom: 20px;
+    }
+
+    h3{
+        font-weight: 800;
+        text-transform: uppercase;
+        border-bottom: 2px solid;
+        margin-bottom: 30px;
+    }
+
+    p {
+        margin: auto;
+    }
+
+    .submit-btn-container{
+        margin: 20px;
+    }
+
+    .add-record-btn-container{
+        margin: 20px;
+    }
+}

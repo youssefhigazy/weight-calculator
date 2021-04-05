@@ -1,0 +1,43 @@
+.main-banner-container{
+    background-image: url("../../assets/images/main-banner-image.jpg");
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+    font-weight: 1200;
+    text-transform: uppercase;
+    color: #303235;
+    text-align: center;
+    h2{
+        font-size: 3rem;
+    } 
+    p{
+        font-size: 2rem;
+        color: #e40303;
+    }
+}
+.how-it-works-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px;
+    .description-container{
+        h3{
+            text-align: center;
+            font-weight: 800;
+            border-bottom: 2px solid;
+            text-transform: uppercase;
+            color: #303235; 
+        }
+    }
+    .description{
+        text-align: center;
+        width: 50%;
+    }
+}

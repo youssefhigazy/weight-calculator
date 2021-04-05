@@ -1,0 +1,78 @@
+<form [formGroup]="form" class="form">
+    <div class="container">
+        <div class="title-container">
+            <h3>Weight calculator</h3>
+        </div>
+        <div class="gender">
+            <h4>Gender</h4>
+            <label for="gender">
+                <input type="radio" name="gender" value="male" class="male" formControlName="gender">
+                <p>Male</p>
+            </label>
+            <label for="gender">
+                <input type="radio" name="gender" value="female" class="female" formControlName="gender">
+                <p>Female</p>
+            </label>
+            <div class="alert alert-danger" *ngIf="form.get('gender').touched && !form.get('gender').valid">
+                This field is required.
+            </div>
+        </div>
+        <div class="height-unit">
+            <h4>Height Measuring Unit</h4>
+            <label for="unit">
+                <input type="radio" name="height-unit" value="imperial" class="imperial" formControlName="height-unit">
+                <p>Imperial</p>
+            </label>
+            <label for="unit">
+                <input type="radio" name="height-unit" value="metric" class="metric" formControlName="height-unit">
+                <p>Metric</p>
+            </label>
+        </div>
+        <div class="height-container">
+            <div class="height-components-container" *ngIf="form.get('height-unit').value === 'imperial'">
+                <label for="feet">Feet</label>
+                <input name="height" formControlName="height1" class="form-control" placeholder="Feet">
+                <label for="inches">Inches</label>
+                <input name="height" formControlName="height2" class="form-control" placeholder="Inches">
+            </div>
+            <div class="height-components-container" *ngIf="form.get('height-unit').value === 'metric'">
+                <label for="meters">Meters</label>
+                <input name="height" formControlName="height1" class="form-control" placeholder="Meters">
+                <label for="centimeters">Centimeters</label>
+                <input name="height" formControlName="height2" class="form-control" placeholder="Centimeters">
+            </div>
+        </div>
+        <div class="unit">
+            <h4>Measuring Unit</h4>
+            <label for="unit">
+                <input type="radio" name="unit" value="pounds" class="pounds" formControlName="unit">
+                <p>Pounds</p>
+            </label>
+            <label for="unit">
+                <input type="radio" name="unit" value="kilograms" class="kilograms" formControlName="unit">
+                <p>Kilograms</p>
+            </label>
+        </div>
+        <div class="weight-container">
+            <label for="weight">Weight</label>
+            <input name="weight" formControlName="weight" class="form-control" placeholder="Enter you weight">
+        </div>
+    
+        <div class="submit-btn-container">
+            <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Calculate</button>
+        </div>
+    
+        <div class="add-record-btn-container">
+            <button (click)="onAddRecord()" class="btn btn-success" [disabled]="!form.valid">Add to my record</button>
+        </div>
+    </div>
+
+    <div class="toast-container" *ngIf="addedToRecordBtnClick">
+        <div class="toast" role="alert" aria-live="polite" aria-atomic="true" data-delay="10000" data-dismiss="true">
+            <div role="alert" aria-live="assertive" aria-atomic="true">
+                The measurement has been added to your record!
+            </div>
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,30 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #EF626C;
+    color: #F6E8EA;
+    text-transform: uppercase;
+    .tabs-container{
+        ul {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            padding: 12px 20px;
+            margin: 0px; 
+            width: 100%;
+            li {
+                font-weight: 600;
+                margin: auto 30px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    .header{
+        width: 100%;
+    }
+}
