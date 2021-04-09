@@ -41,7 +41,7 @@ export class CalculatorFormComponent implements OnInit {
   form = new FormGroup({
     "gender": new FormControl('', Validators.required),
     "unit": new FormControl('', Validators.required),
-    "height-unit": new FormControl('', Validators.required),
+    "heightUnit": new FormControl('', Validators.required),
     "height1": new FormControl('', Validators.required),
     "height2": new FormControl('', Validators.required),
     "weight": new FormControl('', Validators.required)

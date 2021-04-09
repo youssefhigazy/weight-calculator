@@ -15,11 +15,17 @@
         flex-direction: column;
         margin: 20px;
     }
-    .gender label, .unit label, .height-unit label {
+    .gender label, .unit label, .heightUnit label {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        input{
+            padding: 100% 100%;
+        }
+        p {
+            margin: 3px !important;
+        }
     }
     .height-container{
         margin-bottom: 20px;
