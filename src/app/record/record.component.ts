@@ -56,14 +56,14 @@ export class RecordComponent implements OnInit {
               },
               footer: (tooltipItem, data) => {
                 let value = tooltipItem;
-                let finalValue = Object.values(this.storageMeasurementObject[value[0].index]);
-                return finalValue;
+                let finalKeys = Object.keys(this.storageMeasurementObject[value[0].index]);
+                let finalValues = Object.values(this.storageMeasurementObject[value[0].index]);
+                console.log(Object.entries(this.storageMeasurementObject[value[0].index]));
+                return Object.entries(this.storageMeasurementObject[value[0].index]).map(array => array.join(": "));
               }
             }
           }
       }
     });
   }
-
-
 }
