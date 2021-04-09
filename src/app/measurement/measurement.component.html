@@ -1,1 +1,31 @@
-<p>measurement works!</p>
+<div class="main">
+    <div class="loop-container" *ngFor="let measurement of measurements; let i = index">
+        <div class="order">
+            {{ i+1 }}
+        </div>
+        <div class="characterstics">
+            Characterstics associated with this measurement:
+        </div>
+        <div class="gender-container">
+            Gender: {{measurement.gender}}
+        </div>
+        <div class="height-measuring-unit-container">
+            Height Measuring Unit: {{measurement.heightUnit}}
+        </div>
+        <div class="height-measuring-container" *ngIf="measurement.heightUnit === 'imperial'">
+            Feets: {{measurement.height1}}
+            Inches: {{measurement.height2}}
+        </div>
+        <div class="height-measuring-container" *ngIf="measurement.heightUnit === 'metric'">
+            Meters: {{measurement.height1}}
+            Centimeters: {{measurement.height2}}
+        </div>
+        <div class="weight-measuring-unit-container">
+            Weight Measuring Unit: {{measurement.unit}}
+        </div>
+        <div class="weight-measuring-container">
+            {{measurement.weight}} {{measurement.unit}}
+        </div>
+    </div>
+</div>
+
