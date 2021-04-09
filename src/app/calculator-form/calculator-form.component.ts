@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import Chart from 'chart.js';
+import { ToastrService } from 'ngx-toastr';
 import { WeightDataService } from '../services/weight-data-service/weight-data.service';
 
 @Component({
@@ -15,11 +16,12 @@ export class CalculatorFormComponent implements OnInit {
   formValues = [];
   weightValue: number;
   body: HTMLElement;
-  toast: HTMLElement = document.querySelector(".toast");
+  toast: HTMLElement;
   addedToRecordBtnClick: boolean;
-  constructor(private service: WeightDataService) { }
+  constructor(private service: WeightDataService, private toastService: ToastrService) { }
 
   ngOnInit(): void {
+    this.addedToRecordBtnClick = false;
     this.data = [];
     this.labels = [];
     this.listen();
@@ -49,17 +51,17 @@ export class CalculatorFormComponent implements OnInit {
 
   onSubmit(){
     console.log(this.form.value);
-    this.formValues.push(this.form.value);
   }
-
+  
   listen(){
     this.form.get("weight").valueChanges.subscribe(res => {
       this.weightValue = parseInt(res);
     })
   }
-
+  
   onAddRecord(){
     this.addedToRecordBtnClick = true;
+    this.formValues.push(this.form.value);
     this.data.push(this.weightValue);
     this.count++;
     this.labels.push(String(this.count));
@@ -68,5 +70,11 @@ export class CalculatorFormComponent implements OnInit {
     localStorage.setItem("weight-labels", JSON.stringify(this.labels));
     localStorage.setItem("current-measurement", JSON.stringify(this.count));
     localStorage.setItem("current-measurement-information", JSON.stringify(this.formValues));
+    this.toastService.success("The measurement has been added to your record!", "Congrats! 🎉", {
+      timeOut: 5000,
+      enableHtml: true,
+      tapToDismiss: true,
+      toastClass: "toast-success"
+    });
   }
 }
