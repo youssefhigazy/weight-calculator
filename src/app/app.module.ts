@@ -8,6 +8,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { CalculatorFormComponent } from './calculator-form/calculator-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecordComponent } from './record/record.component';
+import { MeasurementComponent } from './measurement/measurement.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { RecordComponent } from './record/record.component';
     HeaderComponent,
     CalculatorFormComponent,
     RecordComponent,
+    MeasurementComponent,
   ],
   imports: [
     BrowserModule,
