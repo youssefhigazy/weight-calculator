@@ -9,6 +9,9 @@ import { CalculatorFormComponent } from './calculator-form/calculator-form.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { RecordComponent } from './record/record.component';
 import { MeasurementComponent } from './measurement/measurement.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { MeasurementComponent } from './measurement/measurement.component';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
