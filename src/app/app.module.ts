@@ -12,6 +12,7 @@ import { MeasurementComponent } from './measurement/measurement.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { ReversedMeasurementHistoryPipe } from './custome-pipes/reversed-array-pipe/reversed-measurement-history.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
     CalculatorFormComponent,
     RecordComponent,
     MeasurementComponent,
+    ReversedMeasurementHistoryPipe,
   ],
   imports: [
     BrowserModule,
