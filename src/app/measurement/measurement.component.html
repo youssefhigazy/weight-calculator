@@ -38,8 +38,14 @@
             🗓
             Date & Time: {{measurement.date}}
         </div>
+        <div class="export-particularly-btn">
+            <button class="btn btn-secondary" (click)="export(i)">Export</button>
+        </div>
     </div>
 </div>
 <div class="end-row-container">
     <p>🙌 YAY!! You have reached the end of the list! 🙌</p>
+</div>
+<div class="export-btn-container">
+    <button class="btn btn-secondary" (click)="export()">Export All Measurements</button>
 </div>
