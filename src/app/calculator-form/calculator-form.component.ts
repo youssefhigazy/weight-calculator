@@ -41,6 +41,7 @@ export class CalculatorFormComponent implements OnInit {
   } 
 
   form = new FormGroup({
+    "id": new FormControl(''),
     "gender": new FormControl('', Validators.required),
     "unit": new FormControl('', Validators.required),
     "heightUnit": new FormControl('', Validators.required),
@@ -51,6 +52,7 @@ export class CalculatorFormComponent implements OnInit {
   })
 
   onSubmit(){
+    this.form.get('id').setValue(this.count+1);
     this.form.get('date').setValue(`${new Date().toDateString()} ${new Date().toLocaleTimeString()}`);
     console.log(this.form.value);
   }
