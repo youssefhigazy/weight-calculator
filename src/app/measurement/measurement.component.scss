@@ -11,10 +11,22 @@
             margin: 5px;
             text-align: left;
         }
+        .export-particularly-btn{
+            button {
+               margin: auto auto;
+            }
+        }
     }
 }
 .end-row-container{
     p{
         text-align: center;
     }
+}
+.export-btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
 }

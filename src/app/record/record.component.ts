@@ -7,14 +7,20 @@ import Chart from 'chart.js';
 })
 export class RecordComponent implements OnInit {
   body: HTMLElement;
+  go_top_btn: HTMLElement;
   storageMeasurementObject;
   storageWeightData;
   storageWeightLabels;
 
   constructor() { }
 
+  
   ngOnInit(): void {
+    this.go_top_btn = document.querySelector(".go-top-btn");
     this.body = document.querySelector(".main");
+    
+    window.addEventListener("scroll", this.scrollTop, true);
+
     this.storageWeightData = JSON.parse(localStorage.getItem("weight-data"));
     this.storageWeightLabels = JSON.parse(localStorage.getItem("weight-labels"));
     this.storageMeasurementObject = JSON.parse(localStorage.getItem("current-measurement-information"));
@@ -65,5 +71,18 @@ export class RecordComponent implements OnInit {
           }
       }
     });
+  }
+
+  scrollTop = (event) => {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50){
+      this.go_top_btn.style.display = "block";
+    } else {
+      this.go_top_btn.style.display = "none";
+    }
+  }
+
+  scrolling(){
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
   }
 }

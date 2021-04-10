@@ -7,6 +7,9 @@
     background-color: #EF626C;
     color: #F6E8EA;
     text-transform: uppercase;
+    .logo-container{
+        cursor: pointer;
+    }
     .tabs-container{
         ul {
             display: flex;

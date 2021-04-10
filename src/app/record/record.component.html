@@ -1,3 +1,4 @@
+<app-back-btn></app-back-btn>
 <div class="main">
     <div class="graph-title-container">
         <h2>Graphical Record</h2>
@@ -7,6 +8,6 @@
     <h2>Measurements Record</h2>
 </div>
 <app-measurement></app-measurement>
-<div class="go-top-btn-container">
+<div class="go-top-btn-container" (click)="scrolling()">
     <button class="btn btn-success go-top-btn"><i class="fa fas fa-arrow-up"></i></button>
 </div>
