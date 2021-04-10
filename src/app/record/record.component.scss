@@ -1,0 +1,30 @@
+.main{
+    margin: 30px;
+    .graph-title-container{
+        h2{
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+            color: #0d6efd;
+            text-decoration: underline;
+        }
+    }
+}
+h2 {
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    color: #0d6efd;
+    text-decoration: underline;
+}
+
+.go-top-btn-container{
+    position: relative;
+    .go-top-btn{
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 50%;
+        padding: 20px 23px;
+    }
+}
