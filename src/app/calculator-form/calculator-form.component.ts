@@ -46,10 +46,12 @@ export class CalculatorFormComponent implements OnInit {
     "heightUnit": new FormControl('', Validators.required),
     "height1": new FormControl('', Validators.required),
     "height2": new FormControl('', Validators.required),
-    "weight": new FormControl('', Validators.required)
+    "weight": new FormControl('', Validators.required),
+    "date": new FormControl('')
   })
 
   onSubmit(){
+    this.form.get('date').setValue(`${new Date().toDateString()} ${new Date().toLocaleTimeString()}`);
     console.log(this.form.value);
   }
   
