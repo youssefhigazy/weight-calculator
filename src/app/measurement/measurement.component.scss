@@ -1,0 +1,20 @@
+.main{
+    .loop-container{
+        margin: 30px;
+        padding: 30px;
+        border-bottom: dashed rgb(126, 124, 124);
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+            margin: 5px;
+            text-align: left;
+        }
+    }
+}
+.end-row-container{
+    p{
+        text-align: center;
+    }
+}

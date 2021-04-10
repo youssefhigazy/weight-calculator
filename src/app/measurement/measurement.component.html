@@ -1,31 +1,45 @@
 <div class="main">
-    <div class="loop-container" *ngFor="let measurement of measurements; let i = index">
+    <div class="loop-container" *ngFor="let measurement of measurements | reversedMeasurementHistory; let i = index">
         <div class="order">
-            {{ i+1 }}
+            <h3>Measurement No. <button class="btn btn-secondary">{{ measurements.length - i }}</button></h3>
         </div>
         <div class="characterstics">
-            Characterstics associated with this measurement:
+            📕 Characterstics associated with this measurement:
         </div>
         <div class="gender-container">
+            <div class="gender-icon" *ngIf="measurement.gender === 'male'">
+                <i class="fa fas fa-male"></i>
+            </div>
+            <div class="gender-icon" *ngIf="measurement.gender === 'female'">
+                <i class="fa fas fa-female"></i>
+            </div>
             Gender: {{measurement.gender}}
         </div>
         <div class="height-measuring-unit-container">
-            Height Measuring Unit: {{measurement.heightUnit}}
+            📏 Height Measuring Unit: {{measurement.heightUnit}}
         </div>
         <div class="height-measuring-container" *ngIf="measurement.heightUnit === 'imperial'">
-            Feets: {{measurement.height1}}
-            Inches: {{measurement.height2}}
+            ➡
+            Feets: {{measurement.height1}} '
+            Inches: {{measurement.height2}} "
         </div>
         <div class="height-measuring-container" *ngIf="measurement.heightUnit === 'metric'">
-            Meters: {{measurement.height1}}
-            Centimeters: {{measurement.height2}}
+            Meters: {{measurement.height1}} M
+            Centimeters: {{measurement.height2}} CM
         </div>
         <div class="weight-measuring-unit-container">
-            Weight Measuring Unit: {{measurement.unit}}
+            ⚖ Weight Measuring Unit: {{measurement.unit}}
         </div>
         <div class="weight-measuring-container">
-            {{measurement.weight}} {{measurement.unit}}
+            ➡
+            Weight: {{measurement.weight}} {{measurement.unit}}
+        </div>
+        <div class="date-container">
+            🗓
+            Date & Time: {{measurement.date}}
         </div>
     </div>
 </div>
-
+<div class="end-row-container">
+    <p>🙌 YAY!! You have reached the end of the list! 🙌</p>
+</div>
