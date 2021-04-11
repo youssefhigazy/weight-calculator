@@ -31,6 +31,7 @@ export class MeasurementComponent implements OnInit {
       { header: "Weight Measureing Unit", key:"weight_unit", width: 24 },
       { header: "Weight (Pounds / Kilograms)", key:"weight", width: 30 },
       { header: "Date", key:"date", width: 30 },
+      { header: "Additional notes (if applicable)", key:"notes", width: 34 },
     ]
 
     // Adding blank row to separate the header and the rows
@@ -45,7 +46,8 @@ export class MeasurementComponent implements OnInit {
                         height2: measurement.height2,
                         weight_unit: measurement.unit,
                         weight: measurement.weight,
-                        date: measurement.date})
+                        date: measurement.date,
+                        notes: measurement.extra_notes})
     } else {
       this.measurements.forEach(measurement => {
         worksheet.addRow({measurement_number: measurement.id,
@@ -55,7 +57,8 @@ export class MeasurementComponent implements OnInit {
                           height2: measurement.height2,
                           weight_unit: measurement.unit,
                           weight: measurement.weight,
-                          date: measurement.date})
+                          date: measurement.date,
+                          notes: measurement.extra_notes})
       })
     }
     

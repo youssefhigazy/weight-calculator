@@ -38,6 +38,10 @@
             🗓
             Date & Time: {{measurement.date}}
         </div>
+        <div class="extra-notes-container" *ngIf="measurement.extra_notes">
+            📝
+            Additional Notes: {{measurement.extra_notes}}
+        </div>
         <div class="export-particularly-btn">
             <button class="btn btn-secondary" (click)="export(i)">Export</button>
         </div>
