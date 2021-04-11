@@ -38,7 +38,7 @@ export class MeasurementComponent implements OnInit {
     worksheet.addRow({});
 
     if (index !== undefined){
-      const measurement = this.measurements[index];
+      const measurement = this.measurements[this.measurements.length - (index + 1)];
       worksheet.addRow({measurement_number: measurement.id,
                         gender: measurement.gender,
                         height_unit: measurement.heightUnit,
@@ -67,6 +67,5 @@ export class MeasurementComponent implements OnInit {
       fs.saveAs(blob, 'Weight-measurement.xlsx');
     });
 
-    console.log(index);
   }
 }
