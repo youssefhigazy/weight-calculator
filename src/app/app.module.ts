@@ -30,7 +30,7 @@ import { BackBtnComponent } from './back-btn/back-btn.component';
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
   providers: [],

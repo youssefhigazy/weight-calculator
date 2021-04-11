@@ -4,9 +4,9 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { RecordComponent } from './record/record.component';
 
 const routes: Routes = [
-  { path: "", redirectTo: "home", pathMatch: "full" },
-  { path: "home", component: HomepageComponent },
-  { path: "record", component: RecordComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: HomepageComponent },
+  { path: 'record', component: RecordComponent },
 ];
 
 @NgModule({

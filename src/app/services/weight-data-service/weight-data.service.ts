@@ -6,7 +6,7 @@ import Chart from 'chart.js';
 })
 export class WeightDataService {
   data: number[] = [];
-  labels = []; 
+  labels = [];
 
   constructor() { }
 }

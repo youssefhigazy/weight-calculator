@@ -14,28 +14,28 @@ export class RecordComponent implements OnInit {
 
   constructor() { }
 
-  
-  ngOnInit(): void {
-    this.go_top_btn = document.querySelector(".go-top-btn");
-    this.body = document.querySelector(".main");
-    
-    window.addEventListener("scroll", this.scrollTop, true);
 
-    this.storageWeightData = JSON.parse(localStorage.getItem("weight-data"));
-    this.storageWeightLabels = JSON.parse(localStorage.getItem("weight-labels"));
-    this.storageMeasurementObject = JSON.parse(localStorage.getItem("current-measurement-information"));
+  ngOnInit(): void {
+    this.go_top_btn = document.querySelector('.go-top-btn');
+    this.body = document.querySelector('.main');
+
+    window.addEventListener('scroll', this.scrollTop, true);
+
+    this.storageWeightData = JSON.parse(localStorage.getItem('weight-data'));
+    this.storageWeightLabels = JSON.parse(localStorage.getItem('weight-labels'));
+    this.storageMeasurementObject = JSON.parse(localStorage.getItem('current-measurement-information'));
     this.graph(this.storageWeightData, this.storageWeightLabels);
   }
-  
-  graph(number: number[], labels){
-    let element = document.createElement("canvas");
-    element.setAttribute("id", "myChart");
+
+  graph(number: number[], labels): void{
+    const element = document.createElement('canvas');
+    element.setAttribute('id', 'myChart');
     this.body.appendChild(element);
-    let ctx = document.getElementById('myChart');
-    let myChart = new Chart(ctx, {
+    const ctx = document.getElementById('myChart');
+    const myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-          labels: labels,
+          labels,
           datasets: [{
               label: 'Weight Measurements',
               data: [...number],
@@ -54,18 +54,18 @@ export class RecordComponent implements OnInit {
                   }
               }]
           },
-          tooltips:{
+          tooltips: {
             callbacks: {
               beforeFooter: () => {
-                let header = "The characterstics for this measurement";
+                const header = 'The characterstics for this measurement';
                 return header;
               },
               footer: (tooltipItem, data) => {
-                let value = tooltipItem;
-                let finalKeys = Object.keys(this.storageMeasurementObject[value[0].index]);
-                let finalValues = Object.values(this.storageMeasurementObject[value[0].index]);
+                const value = tooltipItem;
+                const finalKeys = Object.keys(this.storageMeasurementObject[value[0].index]);
+                const finalValues = Object.values(this.storageMeasurementObject[value[0].index]);
                 console.log(Object.entries(this.storageMeasurementObject[value[0].index]));
-                return Object.entries(this.storageMeasurementObject[value[0].index]).map(array => array.join(": "));
+                return Object.entries(this.storageMeasurementObject[value[0].index]).map(array => array.join(': '));
               }
             }
           }
@@ -75,13 +75,13 @@ export class RecordComponent implements OnInit {
 
   scrollTop = (event) => {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50){
-      this.go_top_btn.style.display = "block";
+      this.go_top_btn.style.display = 'block';
     } else {
-      this.go_top_btn.style.display = "none";
+      this.go_top_btn.style.display = 'none';
     }
   }
 
-  scrolling(){
+  scrolling(): void{
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }

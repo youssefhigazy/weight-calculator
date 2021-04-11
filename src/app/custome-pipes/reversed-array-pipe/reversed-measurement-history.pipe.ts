@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ReversedMeasurementHistoryPipe implements PipeTransform {
 
-  transform(value: any[]){
+  transform(value: any[]): any[]{
     return value.slice().reverse();
   }
 
