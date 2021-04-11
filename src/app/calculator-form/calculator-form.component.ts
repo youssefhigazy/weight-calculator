@@ -17,11 +17,10 @@ export class CalculatorFormComponent implements OnInit {
   weightValue: number;
   body: HTMLElement;
   toast: HTMLElement;
-  addedToRecordBtnClick: boolean;
+  addedToRecordBtnClick: boolean = false;
   constructor(private service: WeightDataService, private toastService: ToastrService) { }
 
   ngOnInit(): void {
-    this.addedToRecordBtnClick = false;
     this.data = [];
     this.labels = [];
     this.listen();
@@ -52,6 +51,7 @@ export class CalculatorFormComponent implements OnInit {
   })
 
   onSubmit(){
+    this.addedToRecordBtnClick = true;
     this.form.get('id').setValue(this.count+1);
     this.form.get('date').setValue(`${new Date().toDateString()} ${new Date().toLocaleTimeString()}`);
     console.log(this.form.value);
@@ -64,7 +64,6 @@ export class CalculatorFormComponent implements OnInit {
   }
   
   onAddRecord(){
-    this.addedToRecordBtnClick = true;
     this.formValues.push(this.form.value);
     this.data.push(this.weightValue);
     this.count++;
