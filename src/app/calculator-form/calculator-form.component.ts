@@ -47,7 +47,8 @@ export class CalculatorFormComponent implements OnInit {
     "height1": new FormControl('', Validators.required),
     "height2": new FormControl('', Validators.required),
     "weight": new FormControl('', Validators.required),
-    "date": new FormControl('')
+    "date": new FormControl(''),
+    "extra_notes": new FormControl('')
   })
 
   onSubmit(){

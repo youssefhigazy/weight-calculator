@@ -57,7 +57,10 @@
             <label for="weight">Weight</label>
             <input name="weight" formControlName="weight" class="form-control" placeholder="Enter you weight">
         </div>
-    
+        <div class="extra-notes-container">
+            <label for="notes">Additional Notes (Optional)</label>
+            <textarea class="form-control" formControlName="extra_notes" name="notes" cols="22" rows="5" placeholder="Notes.."></textarea>
+        </div>
         <div class="submit-btn-container">
             <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Calculate</button>
         </div>
@@ -66,5 +69,5 @@
             <button (click)="onAddRecord()" class="btn btn-success" [disabled]="!addedToRecordBtnClick">Add to my record</button>
         </div>
     </div>
-
+    {{form.value | json}}
 </form>
