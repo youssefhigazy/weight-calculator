@@ -23,9 +23,6 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        input{
-            padding: 100% 100%;
-        }
         p {
             margin: 3px !important;
         }
@@ -55,5 +52,8 @@
 
     .add-record-btn-container{
         margin: 20px;
+    }
+    input{
+        width:min-content;
     }
 }
