@@ -15,7 +15,6 @@ export class MeasurementComponent implements OnInit {
   ngOnInit(): void {
     this.measurements = JSON.parse(localStorage.getItem('current-measurement-information'));
     this.weights = JSON.parse(localStorage.getItem('weight-data'));
-    console.log(Object.keys(this.measurements[0]));
   }
 
   export(index?: number): void{

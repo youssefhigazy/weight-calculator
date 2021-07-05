@@ -1,4 +1,4 @@
-<div class="main">
+<div class="main" *ngIf="measurements">
     <div class="loop-container" *ngFor="let measurement of measurements | reversedMeasurementHistory; let i = index">
         <div class="order">
             <h3>Measurement No. <button class="btn btn-secondary">{{ measurements.length - i }}</button></h3>
