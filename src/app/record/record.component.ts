@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import Chart from 'chart.js';
 @Component({
   selector: 'app-record',
@@ -7,19 +8,17 @@ import Chart from 'chart.js';
 })
 export class RecordComponent implements OnInit {
   body: HTMLElement;
-  go_top_btn: HTMLElement;
   storageMeasurementObject;
   storageWeightData;
   storageWeightLabels;
 
-  constructor() { }
+  constructor(private titleservice: Title) {
+    this.titleservice.setTitle("Record");
+  }
 
 
   ngOnInit(): void {
-    this.go_top_btn = document.querySelector('.go-top-btn');
     this.body = document.querySelector('.main');
-
-    window.addEventListener('scroll', this.scrollTop, true);
 
     this.storageWeightData = JSON.parse(localStorage.getItem('weight-data'));
     this.storageWeightLabels = JSON.parse(localStorage.getItem('weight-labels'));
@@ -71,18 +70,5 @@ export class RecordComponent implements OnInit {
           }
       }
     });
-  }
-
-  scrollTop = (event) => {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50){
-      this.go_top_btn.style.display = 'block';
-    } else {
-      this.go_top_btn.style.display = 'none';
-    }
-  }
-
-  scrolling(): void{
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
   }
 }
