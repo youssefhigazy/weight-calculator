@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ReversedMeasurementHistoryPipe } from './custome-pipes/reversed-array-pipe/reversed-measurement-history.pipe';
 import { BackBtnComponent } from './back-btn/back-btn.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ScrollUpBtnComponent } from './scroll-up-btn/scroll-up-btn.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { BackBtnComponent } from './back-btn/back-btn.component';
     MeasurementComponent,
     ReversedMeasurementHistoryPipe,
     BackBtnComponent,
+    AboutUsComponent,
+    ScrollUpBtnComponent,
   ],
   imports: [
     BrowserModule,
