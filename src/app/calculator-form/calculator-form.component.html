@@ -65,6 +65,11 @@
             <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Calculate</button>
         </div>
     
+        <div class="result-container" *ngIf="addedToRecordBtnClick">
+            <p>Your BMI (Body Mass Index) : <strong>{{ this.form.get("bmi").value | number }} </strong>. This is considered <strong>{{ this.form.get("weight_description").value }}</strong>.</p>
+            <p>The ideal weight for the provided information : <strong>{{ this.form.get("ideal_weight").value | number }} {{ this.form.get("unit").value }}</strong>. The weight that should be lost : <strong>{{ this.form.get("weight_to_lose").value | number }} {{ this.form.get("unit").value }}</strong>.</p>
+        </div>
+
         <div class="add-record-btn-container">
             <button (click)="onAddRecord()" class="btn btn-success" [disabled]="!addedToRecordBtnClick">Add to my record</button>
         </div>

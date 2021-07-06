@@ -19,6 +19,10 @@ export class CalculatorFormComponent implements OnInit {
   body: HTMLElement;
   toast: HTMLElement;
   addedToRecordBtnClick = false;
+  bmiValue: any;
+  weightDescription: string;
+  idealWeight: any;
+  weightToLose: any;
 
   form = new FormGroup({
     id: new FormControl(''),
@@ -28,11 +32,18 @@ export class CalculatorFormComponent implements OnInit {
     height1: new FormControl('', Validators.required),
     height2: new FormControl('', Validators.required),
     weight: new FormControl('', Validators.required),
+    bmi: new FormControl(''),
+    weight_description: new FormControl(''),
+    ideal_weight: new FormControl(''),
+    weight_to_lose: new FormControl(''),
     date: new FormControl(''),
     extra_notes: new FormControl('')
   });
 
   ngOnInit(): void {
+    console.log(this.service.calculateIdealWeight(1.73));
+    this.bmiValue = 0;
+    this.weightDescription = "";
     this.data = [];
     this.labels = [];
     this.listen();
@@ -48,13 +59,44 @@ export class CalculatorFormComponent implements OnInit {
       this.formValues = [...storageMeasurementObject];
       this.count = storageCurrentMeasurement;
     }
-    console.log(storageWeightData);
   }
 
-  onSubmit(): void{
+  async calculateBMI(){
+    const bmi = await this.form.get("bmi").setValue(
+      await this.service.calcExtraWeight(
+        this.form.get("weight").value,
+        this.form.get("unit").value,
+        this.form.get("height1").value,
+        this.form.get("height2").value,
+        this.form.get("heightUnit").value
+      )
+    );
+
+    this.bmiValue = await this.form.get("bmi").value;
+
+    return bmi;
+  }
+
+  async calculateWeightDescription(bmi){
+    const weightDescription = await this.service.weightDescription(bmi);
+
+    this.weightDescription = await weightDescription;
+
+    return weightDescription;
+  }
+
+  async onSubmit(){
     this.addedToRecordBtnClick = true;
     this.form.get('id').setValue(this.count + 1);
     this.form.get('date').setValue(`${new Date().toDateString()} ${new Date().toLocaleTimeString()}`);
+    await this.calculateBMI();
+    await this.form.get('bmi').setValue(this.bmiValue);
+    await this.calculateWeightDescription(this.bmiValue);
+    await this.form.get('weight_description').setValue(this.weightDescription);
+    this.idealWeight = await this.service.calculateIdealWeight(this.service.height);
+    await this.form.get('ideal_weight').setValue(this.idealWeight);
+    this.weightToLose = await this.service.calculateWeightToLose(this.weightValue);
+    await this.form.get('weight_to_lose').setValue(this.weightToLose);
     console.log(this.form.value);
   }
 
