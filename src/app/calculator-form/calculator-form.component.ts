@@ -114,11 +114,12 @@ export class CalculatorFormComponent implements OnInit {
     localStorage.setItem('weight-labels', JSON.stringify(this.labels));
     localStorage.setItem('current-measurement', JSON.stringify(this.count));
     localStorage.setItem('current-measurement-information', JSON.stringify(this.formValues));
-    this.toastService.success('The measurement has been added to your record!', 'Congrats! 🎉', {
-      timeOut: 5000,
+    this.toastService.success('The measurement has been added to your record!', 'Congrats!', {
+      timeOut: 3000,
       enableHtml: true,
       tapToDismiss: true,
-      toastClass: 'toast-success'
+      positionClass: "toast-top-center",
+      toastClass: 'toast-success',
     });
   }
 }
