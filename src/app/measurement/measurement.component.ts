@@ -15,7 +15,6 @@ export class MeasurementComponent implements OnInit {
   ngOnInit(): void {
     this.measurements = JSON.parse(localStorage.getItem('current-measurement-information'));
     this.weights = JSON.parse(localStorage.getItem('weight-data'));
-    console.log(Object.keys(this.measurements[0]));
   }
 
   export(index?: number): void{
@@ -31,6 +30,8 @@ export class MeasurementComponent implements OnInit {
       { header: 'Weight Measureing Unit', key: 'weight_unit', width: 24 },
       { header: 'Weight (Pounds / Kilograms)', key: 'weight', width: 30 },
       { header: 'Date', key: 'date', width: 30 },
+      { header: 'BMI (Body Mass Index)', key: 'bmi', width: 24 },
+      { header: 'BMI Evaluation', key: 'weight_description', width: 30 },
       { header: 'Additional notes (if applicable)', key: 'notes', width: 34 },
     ];
 
@@ -42,22 +43,26 @@ export class MeasurementComponent implements OnInit {
       worksheet.addRow({measurement_number: measurement.id,
                         gender: measurement.gender,
                         height_unit: measurement.heightUnit,
-                        height1: measurement.height1,
-                        height2: measurement.height2,
+                        height1: parseInt(measurement.height1),
+                        height2: parseInt(measurement.height2),
                         weight_unit: measurement.unit,
-                        weight: measurement.weight,
+                        weight: parseFloat(measurement.weight),
                         date: measurement.date,
+                        bmi: measurement.bmi,
+                        weight_description: measurement.weight_description,
                         notes: measurement.extra_notes});
     } else {
       this.measurements.forEach(measurement => {
         worksheet.addRow({measurement_number: measurement.id,
                           gender: measurement.gender,
                           height_unit: measurement.heightUnit,
-                          height1: measurement.height1,
-                          height2: measurement.height2,
+                          height1: parseInt(measurement.height1),
+                          height2: parseInt(measurement.height2),
                           weight_unit: measurement.unit,
-                          weight: measurement.weight,
+                          weight: parseFloat(measurement.weight),
                           date: measurement.date,
+                          bmi: measurement.bmi,
+                          weight_description: measurement.weight_description,
                           notes: measurement.extra_notes});
       });
     }
