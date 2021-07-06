@@ -1,0 +1,25 @@
+.about-us-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 40px;
+    .image-container{
+        img {
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+        }
+    }
+    .name-container{
+        margin: 10px;
+        text-transform: uppercase;
+        h1{
+            font-weight: 900;
+        }
+    }
+    .description-container{
+        width: 50%;
+        text-align: center;
+    }
+}
