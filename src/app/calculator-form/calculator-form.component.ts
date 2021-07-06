@@ -118,7 +118,7 @@ export class CalculatorFormComponent implements OnInit {
       timeOut: 3000,
       enableHtml: true,
       tapToDismiss: true,
-      positionClass: "toast-top-center",
+      positionClass: "toast-top-right",
       toastClass: 'toast-success',
     });
   }
