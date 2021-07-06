@@ -38,6 +38,14 @@
             🗓
             Date & Time: {{measurement.date}}
         </div>
+        <div class="bmi-container">
+            ✔
+            BMI (Body Mass Index): {{measurement.bmi | number}}
+        </div>
+        <div class="bmi-container">
+            🎇
+            Your BMI consided : {{measurement.weight_description }}
+        </div>
         <div class="extra-notes-container" *ngIf="measurement.extra_notes">
             📝
             Additional Notes: {{measurement.extra_notes}}
