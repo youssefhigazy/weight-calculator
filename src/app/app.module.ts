@@ -16,6 +16,7 @@ import { ReversedMeasurementHistoryPipe } from './custome-pipes/reversed-array-p
 import { BackBtnComponent } from './back-btn/back-btn.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ScrollUpBtnComponent } from './scroll-up-btn/scroll-up-btn.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ScrollUpBtnComponent } from './scroll-up-btn/scroll-up-btn.component';
     BackBtnComponent,
     AboutUsComponent,
     ScrollUpBtnComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
