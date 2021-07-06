@@ -22,4 +22,20 @@
         width: 50%;
         text-align: center;
     }
+    .social-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a {
+            text-decoration: none;
+            i {
+                margin: 20px;
+                font-size: xx-large;
+                color: #000;
+                &:hover{
+                    color: rgba(0, 0, 0, 0.61);
+                }
+            }
+        }
+    }
 }

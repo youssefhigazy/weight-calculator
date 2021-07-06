@@ -63,7 +63,7 @@ export class RecordComponent implements OnInit {
                 const value = tooltipItem;
                 const finalKeys = Object.keys(this.storageMeasurementObject[value[0].index]);
                 const finalValues = Object.values(this.storageMeasurementObject[value[0].index]);
-                console.log(Object.entries(this.storageMeasurementObject[value[0].index]));
+                // console.log(Object.entries(this.storageMeasurementObject[value[0].index]));
                 return Object.entries(this.storageMeasurementObject[value[0].index]).map(array => array.join(': '));
               }
             }

@@ -46,6 +46,14 @@
             🎇
             Your BMI consided : {{measurement.weight_description }}
         </div>
+        <div class="ideal-weight-container">
+            👌
+            Your ideal weight based on the provided information : {{measurement.ideal_weight | number }} {{ measurement.unit }}
+        </div>
+        <div class="weight-to-lose-container">
+            👍
+            The amount of weight that should be lost : {{measurement.weight_to_lose | number }} {{ measurement.unit }}
+        </div>
         <div class="extra-notes-container" *ngIf="measurement.extra_notes">
             📝
             Additional Notes: {{measurement.extra_notes}}

@@ -41,7 +41,6 @@ export class CalculatorFormComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    console.log(this.service.calculateIdealWeight(1.73));
     this.bmiValue = 0;
     this.weightDescription = "";
     this.data = [];
@@ -97,7 +96,6 @@ export class CalculatorFormComponent implements OnInit {
     await this.form.get('ideal_weight').setValue(this.idealWeight);
     this.weightToLose = await this.service.calculateWeightToLose(this.weightValue);
     await this.form.get('weight_to_lose').setValue(this.weightToLose);
-    console.log(this.form.value);
   }
 
   listen(): void{
@@ -116,11 +114,12 @@ export class CalculatorFormComponent implements OnInit {
     localStorage.setItem('weight-labels', JSON.stringify(this.labels));
     localStorage.setItem('current-measurement', JSON.stringify(this.count));
     localStorage.setItem('current-measurement-information', JSON.stringify(this.formValues));
-    this.toastService.success('The measurement has been added to your record!', 'Congrats! 🎉', {
-      timeOut: 5000,
+    this.toastService.success('The measurement has been added to your record!', 'Congrats!', {
+      timeOut: 3000,
       enableHtml: true,
       tapToDismiss: true,
-      toastClass: 'toast-success'
+      positionClass: "toast-top-center",
+      toastClass: 'toast-success',
     });
   }
 }
