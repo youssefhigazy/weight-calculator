@@ -41,7 +41,6 @@ export class CalculatorFormComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    console.log(this.service.calculateIdealWeight(1.73));
     this.bmiValue = 0;
     this.weightDescription = "";
     this.data = [];
@@ -97,7 +96,6 @@ export class CalculatorFormComponent implements OnInit {
     await this.form.get('ideal_weight').setValue(this.idealWeight);
     this.weightToLose = await this.service.calculateWeightToLose(this.weightValue);
     await this.form.get('weight_to_lose').setValue(this.weightToLose);
-    console.log(this.form.value);
   }
 
   listen(): void{
