@@ -9,6 +9,9 @@
     text-transform: uppercase;
     .logo-container{
         cursor: pointer;
+        &:hover{
+            color: #f6e8eace;
+        }
     }
     .tabs-container{
         ul {
@@ -21,6 +24,15 @@
             li {
                 font-weight: 600;
                 margin: auto 30px;
+                a {
+                    text-decoration: none;
+                    color: #F6E8EA;
+                    text-transform: capitalize;
+                    font-size: 1rem;
+                    &:hover{
+                        color: #f6e8eace;
+                    }
+                }
             }
         }
     }
