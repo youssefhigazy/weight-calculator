@@ -70,12 +70,10 @@ export class WeightDataService {
   }
   
   calculateWeightToLose(weight: number){
-    const convertKilogramToPound = 2.20462;
-    let weightToLoss = weight - this.calculateIdealWeight(this.height);
-    
-    if (weightToLoss <= 0) weightToLoss = 0;
-    if (this.weightUnit === "pounds") weightToLoss = weightToLoss * convertKilogramToPound;
+    let weightToLose = weight - this.calculateIdealWeight(this.height);;
 
-    return weightToLoss;
+    if (weightToLose <= 0) weightToLose = 0;
+
+    return weightToLose;
   }
 }
