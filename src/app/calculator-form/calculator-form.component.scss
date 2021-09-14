@@ -29,6 +29,11 @@
     }
     .height-container{
         margin-bottom: 20px;
+        .height-components-container{
+            i{
+                font-size: x-small;
+            }
+        }
     }
 
     .extra-notes-container{
@@ -50,10 +55,19 @@
         margin: 20px;
     }
 
+    .result-container{
+        span{
+            cursor: pointer;
+            text-decoration: underline;
+            color: #0d6efd;
+        }
+    }
+
     .add-record-btn-container{
         margin: 20px;
     }
+
     input{
-        width:min-content;
+        width: min-content;
     }
 }

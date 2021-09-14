@@ -13,6 +13,7 @@
                 <input type="radio" name="gender" value="female" class="female" formControlName="gender">
                 <p>Female</p>
             </label>
+            <!-- Validation Handling -->
             <div class="alert alert-danger" *ngIf="form.get('gender').touched && !form.get('gender').valid">
                 This field is required.
             </div>
@@ -27,19 +28,41 @@
                 <input type="radio" name="heightUnit" value="metric" class="metric" formControlName="heightUnit">
                 <p>Metric</p>
             </label>
+            <!-- Validation Handling -->
+            <div class="alert alert-danger" *ngIf="form.get('heightUnit').touched && !form.get('heightUnit').valid">
+                This field is required.
+            </div>
         </div>
         <div class="height-container">
             <div class="height-components-container" *ngIf="form.get('heightUnit').value === 'imperial'">
                 <label for="feet">Feet</label>
                 <input name="height" formControlName="height1" class="form-control" placeholder="Feet">
+                <!-- Validation Handling -->
+                <div class="alert alert-danger" *ngIf="form.get('height1').touched && !form.get('height1').valid">
+                    This field is required.
+                </div>
                 <label for="inches">Inches</label>
                 <input name="height" formControlName="height2" class="form-control" placeholder="Inches">
+                <i>If the Inches field is not needed, please enter: 0</i>
+                <!-- Validation Handling -->
+                <div class="alert alert-danger" *ngIf="form.get('height2').touched && !form.get('height2').valid">
+                    This field is required.
+                </div>
             </div>
             <div class="height-components-container" *ngIf="form.get('heightUnit').value === 'metric'">
                 <label for="meters">Meters</label>
                 <input name="height" formControlName="height1" class="form-control" placeholder="Meters">
+                <!-- Validation Handling -->
+                <div class="alert alert-danger" *ngIf="form.get('height1').touched && !form.get('height1').valid">
+                    This field is required.
+                </div>
                 <label for="centimeters">Centimeters</label>
                 <input name="height" formControlName="height2" class="form-control" placeholder="Centimeters">
+                <i>If the Centimeters field is not needed, please enter: 0</i>
+                <!-- Validation Handling -->
+                <div class="alert alert-danger" *ngIf="form.get('height2').touched && !form.get('height2').valid">
+                    This field is required.
+                </div>
             </div>
         </div>
         <div class="unit">
@@ -52,10 +75,18 @@
                 <input type="radio" name="unit" value="kilograms" class="kilograms" formControlName="unit">
                 <p>Kilograms</p>
             </label>
+            <!-- Validation Handling -->
+            <div class="alert alert-danger" *ngIf="form.get('unit').touched && !form.get('unit').valid">
+                This field is required.
+            </div>
         </div>
         <div class="weight-container">
             <label for="weight">Weight</label>
             <input name="weight" formControlName="weight" class="form-control" placeholder="Enter you weight">
+            <!-- Validation Handling -->
+            <div class="alert alert-danger" *ngIf="form.get('weight').touched && !form.get('weight').valid">
+                This field is required.
+            </div>
         </div>
         <div class="extra-notes-container">
             <label for="notes">Additional Notes (Optional)</label>
@@ -66,8 +97,8 @@
         </div>
     
         <div class="result-container" *ngIf="addedToRecordBtnClick">
-            <p>Your BMI (Body Mass Index) : <strong>{{ this.form.get("bmi").value | number }} </strong>. This is considered <strong>{{ this.form.get("weight_description").value }}</strong>.</p>
-            <p>The ideal weight for the provided information : <strong>{{ this.form.get("ideal_weight").value | number }} {{ this.form.get("unit").value }}</strong>. The weight that should be lost : <strong>{{ this.form.get("weight_to_lose").value | number }} {{ this.form.get("unit").value }}</strong>.</p>
+            <p>Your BMI (Body Mass Index) : <b>{{ this.form.get("bmi").value | number }} </b> This is considered <b>{{ this.form.get("weight_description").value }}</b>. Refer to the resources page <span [routerLink]="['/', 'resources']">here</span> to learn more.</p>
+            <p>The ideal weight for the provided information : <b>{{ this.form.get("ideal_weight").value | number }} {{ this.form.get("unit").value }}</b>. The weight that should be lost : <b>{{ this.form.get("weight_to_lose").value | number }} {{ this.form.get("unit").value }}</b>.</p>
         </div>
 
         <div class="add-record-btn-container">
